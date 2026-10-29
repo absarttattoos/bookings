@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Tell Absart Tattoos about your tattoo idea in under a minute and send your enquiry straight to the artist on WhatsApp.">
+<title>Absart Tattoos – Tattoo enquiry</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖋️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f5f2ec;--card:#fbf9f5;--ink:#141211;--mute:#7a736a;--line:#ddd6ca;--body:#ece6db;--sel:#7d1f1a;--btn:#141211;--btnink:#f5f2ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f0e0d;--card:#181614;--ink:#f2ede4;--mute:#968e82;--line:#2e2b27;--body:#201e1b;--sel:#d8574d;--btn:#f2ede4;--btnink:#0f0e0d}}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:18px 20px 150px}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:600;letter-spacing:.5px}
+.cnt{font-size:13px;color:var(--mute)}
+.prog{display:flex;gap:6px;margin:16px 0 30px}
+.prog i{flex:1;height:2px;background:var(--line);border-radius:2px;transition:background .3s}
+.prog i.on{background:var(--ink)}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:34px;line-height:1.1;letter-spacing:-.3px;margin:0 0 8px;outline:none}
+.sub{color:var(--mute);margin:0 0 22px;font-size:15px}
+h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:22px;margin:30px 0 12px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px;-webkit-appearance:none;appearance:none}
+textarea{min-height:150px;resize:none;line-height:1.5}
+textarea::placeholder,input::placeholder{color:var(--mute);opacity:.8}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font:inherit;font-size:14px;padding:9px 15px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--ink);min-height:40px;cursor:pointer}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.up{display:flex;align-items:center;gap:14px;margin-top:18px;border:1px dashed var(--mute);border-radius:14px;padding:16px;color:var(--mute);cursor:pointer;min-height:64px;background:var(--card)}
+.up input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.up:focus-within{outline:2px solid var(--ink);outline-offset:2px}
+.up svg{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.5}
+.pv{display:none;position:relative;margin-top:14px}
+.pv img{width:100%;max-height:240px;object-fit:cover;border-radius:14px;display:block}
+.pv button{position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.65);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.seg{display:flex;background:var(--body);border-radius:99px;padding:4px;max-width:220px;margin:0 auto 6px}
+.seg button{flex:1;font:inherit;font-size:15px;font-weight:500;border:0;background:transparent;color:var(--mute);border-radius:99px;min-height:40px;cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.fig{margin:0 auto;width:100%;max-width:300px}
+.fig svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.p{fill:var(--body);stroke:var(--line);stroke-width:1.2;cursor:pointer;transition:fill .15s}
+.p.on{fill:var(--sel);stroke:var(--sel)}
+.p:focus-visible{outline:none;stroke:var(--ink);stroke-width:2.5}
+.hint{text-align:center;font-size:13px;color:var(--mute);margin:2px 0 8px}
+.sel{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:40px;align-items:center}
+.sel button{font:inherit;font-size:13px;border:1px solid var(--sel);color:var(--sel);background:transparent;border-radius:99px;padding:7px 12px;min-height:36px;cursor:pointer}
+.rows{display:flex;flex-direction:column;gap:10px}
+.opt{font:inherit;text-align:left;display:flex;align-items:center;gap:12px;width:100%;min-height:62px;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.opt .t{flex:1}.opt .t b{display:block;font-weight:500;font-size:16px}.opt .t small{color:var(--mute);font-size:13px}
+.opt .em{font-size:26px;line-height:1}
+.opt::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--mute)}
+.opt.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt.on::before{border-color:var(--ink);background:radial-gradient(var(--ink) 0 45%,transparent 50%)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid .opt{min-height:56px;padding:12px 14px}
+.grid .opt.w{grid-column:1/-1}
+.sum{border:1px solid var(--line);border-radius:16px;background:var(--card);margin-top:18px}
+.r{display:flex;gap:12px;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.r:last-child{border:0}
+.r small{display:block;color:var(--mute);font-size:12px;margin-bottom:2px}
+.r p{margin:0;word-break:break-word;white-space:pre-wrap}
+.r button{font:inherit;font-size:13px;color:var(--mute);background:none;border:0;text-decoration:underline;min-width:44px;min-height:44px;align-self:flex-start;margin:-10px -8px 0 0;cursor:pointer}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+.alt{display:none;font:inherit;font-weight:600;width:100%;min-height:54px;margin-top:14px;border-radius:99px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+section{display:none}section.show{display:block;animation:in .25s ease}
+@keyframes in{from{opacity:0}to{opacity:1}}
+.fall{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;transition:opacity .4s}
+.fall.calm{opacity:.45}
+.fall.off{opacity:0}
+.fb{position:absolute;top:-90px;max-width:56%;padding:8px 12px;border-radius:12px;font-size:12.5px;line-height:1.35;color:var(--mute);background:var(--card);border:1px solid var(--line);opacity:0;animation:fall linear forwards}
+@keyframes fall{0%{transform:translateY(0) rotate(var(--r));opacity:0}10%{opacity:.5}85%{opacity:.5}100%{transform:translateY(calc(100vh + 140px)) rotate(var(--r));opacity:0}}
+.dock{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));z-index:5}
+.dock div{max-width:480px;margin:0 auto;display:flex;gap:10px}
+.dock button,.dock a{font:inherit;font-size:16px;font-weight:600;min-height:54px;border-radius:99px;display:flex;align-items:center;justify-content:center;text-decoration:none;border:0;cursor:pointer}
+.reply{display:none;max-width:480px;margin:0 auto 10px;text-align:center;font-size:13px;color:var(--mute)}
+#back{flex:0 0 auto;padding:0 22px;background:transparent;border:1px solid var(--line);color:var(--ink)}
+#back[hidden]{display:none}
+#next,#waBtn{flex:1;background:var(--btn);color:var(--btnink)}
+#waBtn{display:none;background:#1fa855;color:#fff}
+.toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);max-width:calc(100% - 40px);background:var(--ink);color:var(--bg);font-size:14px;padding:11px 18px;border-radius:99px;text-align:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:20}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+noscript p{padding:24px;text-align:center}
+@media (prefers-reduced-motion:reduce){section.show{animation:none}.toast,.prog i,.p{transition:none}}
+</style>
+</head>
+<body>
+<noscript><p>Please turn on JavaScript to send your tattoo enquiry, or message us directly on WhatsApp at +91 93738 47246.</p></noscript>
+<div class="fall" id="fall" aria-hidden="true"></div>
+<div class="wrap">
+<div class="top"><div class="logo">Absart Tattoos</div><div class="cnt" id="cnt" aria-live="polite">1 / 4</div></div>
+<div class="prog" id="prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+<section id="s1" class="show">
+<h1 tabindex="-1">What are you<br>thinking of getting?</h1>
+<p class="sub">Describe your tattoo idea in your own words.</p>
+<textarea id="idea" maxlength="600" aria-label="Your tattoo idea" placeholder="e.g. A fine-line lotus with my mother’s initials, black and grey"></textarea>
+<div class="chips" id="styles" aria-label="Style (optional)"></div>
+<label class="up"><input type="file" id="file" accept="image/*"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg><span id="upTxt">Add a reference image (optional)</span></label>
+<div class="pv" id="pv"><img id="prev" alt="Your reference image"><button type="button" id="rm" aria-label="Remove image">&times;</button></div>
+</section>
+
+<section id="s2">
+<h1 tabindex="-1">Where and<br>how big?</h1>
+<p class="sub">Tap the spot on the body. You can pick more than one.</p>
+<div class="seg"><button type="button" id="tF" class="on">Front</button><button type="button" id="tB">Back</button></div>
+<div class="fig" id="fig"><svg id="body" viewBox="0 0 200 420" role="group" aria-label="Body map"></svg></div>
+<div class="sel" id="sel"></div>
+<h3>How big do you want it?</h3>
+<div class="rows" id="sizes" role="radiogroup" aria-label="Size"></div>
+<h3>What’s your budget?</h3>
+<div class="grid" id="budgets" role="radiogroup" aria-label="Budget in rupees"></div>
+</section>
+
+<section id="s3">
+<h1 tabindex="-1">When would<br>you like it?</h1>
+<p class="sub">Pick the time that works best for you.</p>
+<div class="grid" id="whens" role="radiogroup" aria-label="Timing"></div>
+</section>
+
+<section id="s4">
+<h1 tabindex="-1">Your enquiry</h1>
+<p class="sub">Check the details, then send them to the artist. You’ll hear back within 12 hours.</p>
+<input type="text" id="name" maxlength="60" placeholder="Your name" autocomplete="name" aria-label="Your name">
+<div class="sum" id="sum"></div>
+<button type="button" class="alt" id="shareBtn">Send with my reference image</button>
+<div class="note" id="imgNote" style="display:none"></div>
+</section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="dock"><p class="reply" id="reply">✓ We’ll message you back on WhatsApp within 12 hours.</p><div><button type="button" id="back" hidden>Back</button><button type="button" id="next">Continue</button><a id="waBtn" href="#" target="_blank" rel="noopener noreferrer">Send enquiry on WhatsApp</a></div></div>
+
+<script>
+(function(){
+"use strict";
+var WA="919373847246",STUDIO="Absart Tattoos";
+var STYLES=["Fine line","Minimal","Realism","Lettering","Traditional","Not sure"];
+var SIZES=[["Credit card size","💳","About 8 × 5 cm"],["Hand size","✋","Roughly your palm"],["A4 size","📄","About 21 × 30 cm"],["Half sleeve or larger","😎","Shoulder to elbow and beyond"],["Haven’t decided yet","","We’ll help you choose"]];
+var BUDGETS=["Under 5k","5k–10k","10k–15k","15k–25k","25k+"];
+var WHENS=["Today","Tomorrow","This week","Next week"];
+var MSG=["Your skin is about to become art 🎨","Good taste detected ✨","Fun fact: Ötzi the Iceman, over 5,000 years old, had around 60 tattoos.","Brave decision. Great decision.","Future you says thank you 🙌","Your idea already sounds better than most Mondays.","Pro tip: moisturise, don’t scratch.","No pressure. Just a very cool idea.","Plot twist: you’ll want a second one.","That idea has main-character energy.","It’s going to look amazing. We can tell.","Pain is temporary. Bragging rights are forever.","Fun fact: ‘tattoo’ comes from the Polynesian word ‘tatau’.","Your future self is already smiling 😄","Every great story starts with a first line.","Drink water. Hydrated skin heals better 💧","You have great taste. Just saying.","Our artists are excited already 🖋️","A tattoo is a diary people can actually see.","Confidence level: about to go up.","Fun fact: the first tattoo machine was patented in 1891.","Whatever you pick, wear it like you meant it 😎","Take your time. Good art is worth it."];
+var S={idea:"",styles:{},hasImg:false,file:null,parts:{},size:"",budget:"",when:"",view:"Front"},cur=1,hist=true;
+var $=function(i){return document.getElementById(i)};
+var RM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)");
+function reduced(){return RM&&RM.matches}
+
+/* ---------- Body map (viewer-left shapes are mirrored for the right side) ---------- */
+var C=[
+["head","Head","M100 10 C116 10 118 28 117 38 C116 48 110 57 100 57 C90 57 84 48 83 38 C82 28 84 10 100 10 Z"],
+["neck","Neck","M92 60 L108 60 L109 73 Q100 78 91 73 Z"],
+["chest","@Chest|Upper back","M68 81 Q100 73 132 81 Q135 101 130 117 Q100 127 70 117 Q65 101 68 81 Z"],
+["abs","@Stomach|Lower back","M71 121 Q100 131 129 121 Q128 150 124 171 Q100 179 76 171 Q72 150 71 121 Z"],
+["hip","@Hips|Glutes","M76 175 Q100 183 124 175 Q132 194 130 214 Q100 226 70 214 Q68 194 76 175 Z"]];
+var L=[
+["sh","Shoulder","M67 80 Q53 80 50 97 L49 107 L65 109 Q68 95 70 83 Z"],
+["ua","Upper arm","M49 112 L65 114 Q65 140 62 161 L46 159 Q46 135 49 112 Z"],
+["fa","Forearm","M45 164 L61 166 Q60 192 57 215 L41 213 Q41 188 45 164 Z"],
+["h","Hand","M41 218 L57 220 Q60 238 56 254 Q50 260 44 256 Q38 238 41 218 Z"],
+["th","Thigh","M70 218 Q85 226 99 222 L98 294 Q84 300 72 294 Q64 258 70 218 Z"],
+["c","@Shin|Calf","M72 300 Q85 304 97 300 Q96 342 93 384 L77 384 Q72 342 72 300 Z"],
+["f","Foot","M76 387 L93 387 L96 405 Q95 415 80 415 Q68 413 72 401 Z"]];
+function nm(l,v){if(l.charAt(0)!=="@")return l;var a=l.slice(1).split("|");return v==="Front"?a[0]:a[1]}
+function lab(l,side,v){var t=nm(l,v);if(!side)return t;return((side==="1")===(v==="Front")?"Right ":"Left ")+t.toLowerCase()}
+function drawBody(focusKey){
+  var h="",v=S.view;
+  function add(id,l,d,side,mir){
+    var k=v+"|"+id+side,on=S.parts[k]?" on":"",t=lab(l,side,v);
+    h+='<path class="p'+on+'" d="'+d+'"'+(mir?' transform="matrix(-1 0 0 1 200 0)"':'')+' data-k="'+k+'" data-l="'+t+'" tabindex="0" role="button" aria-pressed="'+(!!on)+'" aria-label="'+t+'"/>';
+  }
+  C.forEach(function(p){add(p[0],p[1],p[2],"",false)});
+  L.forEach(function(p){add(p[0],p[1],p[2],"1",false);add(p[0],p[1],p[2],"2",true)});
+  $("body").innerHTML=h;
+  $("tF").className=v==="Front"?"on":"";$("tB").className=v==="Back"?"on":"";
+  $("tF").setAttribute("aria-pressed",v==="Front");$("tB").setAttribute("aria-pressed",v==="Back");
+  var box=$("sel"),keys=Object.keys(S.parts);box.innerHTML="";
+  if(!keys.length){var s=document.createElement("span");s.className="hint";s.textContent="Nothing selected yet";box.appendChild(s)}
+  keys.forEach(function(k){var b=document.createElement("button");b.type="button";b.textContent=S.parts[k]+" ×";b.setAttribute("aria-label","Remove "+S.parts[k]);b.onclick=function(){delete S.parts[k];drawBody()};box.appendChild(b)});
+  if(focusKey){var el=$("body").querySelector('[data-k="'+focusKey+'"]');if(el)el.focus()}
+}
+function tog(el,viaKey){
+  var k=el.getAttribute&&el.getAttribute("data-k");if(!k)return;
+  if(S.parts[k])delete S.parts[k];else S.parts[k]=S.view+" – "+el.getAttribute("data-l");
+  drawBody(viaKey?k:null);
+}
+$("body").addEventListener("click",function(e){tog(e.target,false)});
+$("body").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();tog(e.target,true)}});
+$("tF").onclick=function(){S.view="Front";drawBody()};
+$("tB").onclick=function(){S.view="Back";drawBody()};
+
+/* ---------- Step 1 ---------- */
+STYLES.forEach(function(t){
+  var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=t;b.setAttribute("aria-pressed","false");
+  b.onclick=function(){var on=!S.styles[t];if(on)S.styles[t]=1;else delete S.styles[t];b.className="chip"+(on?" on":"");b.setAttribute("aria-pressed",on)};
+  $("styles").appendChild(b);
+});
+$("file").addEventListener("change",function(){
+  var f=this.files&&this.files[0];if(!f)return;
+  if(f.type.indexOf("image/")!==0){toast("Please choose an image file.");this.value="";return}
+  S.hasImg=true;S.file=f;$("upTxt").textContent="Change image";
+  var r=new FileReader();r.onload=function(){$("prev").src=r.result;$("pv").style.display="block"};r.readAsDataURL(f);
+});
+$("rm").onclick=function(){S.hasImg=false;S.file=null;$("file").value="";$("pv").style.display="none";$("prev").removeAttribute("src");$("upTxt").textContent="Add a reference image (optional)"};
+
+/* ---------- Options ---------- */
+function opts(id,list,key,rich){
+  var box=$(id);
+  list.forEach(function(it,i){
+    var t=rich?it[0]:it,b=document.createElement("button");
+    b.type="button";b.className="opt"+(!rich&&id==="budgets"&&i===list.length-1?" w":"");
+    b.setAttribute("role","radio");b.setAttribute("aria-checked","false");
+    b.innerHTML=rich?'<span class="t"><b>'+t+'</b><small>'+it[2]+'</small></span>'+(it[1]?'<span class="em" aria-hidden="true">'+it[1]+'</span>':''):'<span class="t"><b>'+t+'</b></span>';
+    b.onclick=function(){S[key]=t;[].forEach.call(box.children,function(c){c.classList.remove("on");c.setAttribute("aria-checked","false")});b.classList.add("on");b.setAttribute("aria-checked","true")};
+    box.appendChild(b);
+  });
+}
+opts("sizes",SIZES,"size",true);opts("budgets",BUDGETS,"budget",false);opts("whens",WHENS,"when",false);
+
+/* ---------- Toast + validation ---------- */
+var tt;
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("show")},3200)}
+function fail(m,id){toast(m);var e=$(id);if(e)e.scrollIntoView({behavior:reduced()?"auto":"smooth",block:"center"});return false}
+function chk(n){
+  if(n===1){S.idea=$("idea").value.trim();if(!S.idea&&!S.hasImg)return fail("Describe your idea or add a reference image to continue.","idea")}
+  if(n===2){
+    if(!Object.keys(S.parts).length)return fail("Tap at least one body part.","fig");
+    if(!S.size)return fail("Choose a size.","sizes");
+    if(!S.budget)return fail("Choose a budget range.","budgets");
+  }
+  if(n===3&&!S.when)return fail("Choose when you want it.","whens");
+  return true;
+}
+
+/* ---------- Navigation ---------- */
+function go(n,push,focus){
+  cur=n;
+  for(var i=1;i<=4;i++)$("s"+i).className=i===n?"show":"";
+  [].forEach.call($("prog").children,function(c,i){c.className=i<n?"on":""});
+  $("cnt").textContent=n+" / 4";
+  $("back").hidden=n===1;
+  $("next").style.display=n===4?"none":"flex";
+  $("waBtn").style.display=n===4?"flex":"none";
+  $("reply").style.display=n===4?"block":"none";
+  $("fall").classList.toggle("calm",n===2);
+  if(n===2)drawBody();
+  if(n===4)build();
+  window.scrollTo(0,0);
+  if(focus){var h=$("s"+n).querySelector("h1");if(h)h.focus({preventScroll:true})}
+  if(push&&hist){try{history.pushState({s:n},"")}catch(e){hist=false}}
+}
+$("next").onclick=function(){if(chk(cur))go(cur+1,true,true)};
+$("back").onclick=function(){
+  if(cur<=1)return;
+  if(hist&&history.state&&history.state.s===cur)history.back();else go(cur-1,false,true);
+};
+window.addEventListener("popstate",function(e){var s=e.state&&e.state.s;if(s>=1&&s<=4)go(s,false,true);else go(1,false,true)});
+
+/* ---------- Summary + WhatsApp ---------- */
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function rows(){
+  var st=Object.keys(S.styles).join(", ");
+  var r=[["Idea",S.idea||"(see reference image)",1]];
+  if(st)r.push(["Style",st,1]);
+  r.push(["Reference image",S.hasImg?"Yes – I’ll attach it in chat":"None",1],["Placement",Object.keys(S.parts).map(function(k){return S.parts[k]}).join(", "),2],["Size",S.size,2],["Budget (₹)",S.budget,2],["When",S.when,3]);
+  return r;
+}
+function msg(){
+  var n=$("name").value.trim();
+  return "Hi "+STUDIO+"! New tattoo enquiry"+(n?" from "+n:"")+":\n\n"+rows().map(function(r){return"*"+r[0]+":* "+r[1]}).join("\n");
+}
+function link(){$("waBtn").href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg())}
+function build(){
+  $("sum").innerHTML=rows().map(function(r){return'<div class="r"><div><small>'+r[0]+'</small><p>'+esc(r[1])+'</p></div><button type="button" data-s="'+r[2]+'" aria-label="Edit '+r[0]+'">Edit</button></div>'}).join("");
+  [].forEach.call($("sum").querySelectorAll("button"),function(b){b.onclick=function(){go(+b.getAttribute("data-s"),true,true)}});
+  var can=!!(S.hasImg&&S.file&&navigator.canShare&&navigator.share&&navigator.canShare({files:[S.file]}));
+  $("shareBtn").style.display=can?"block":"none";
+  var note=$("imgNote");note.style.display=S.hasImg?"block":"none";
+  note.textContent=can?"The green button opens the chat with your details. To include your photo too, tap “Send with my reference image”, choose WhatsApp, then pick Absart Tattoos (save 93738 47246 first).":"WhatsApp can’t attach photos automatically. When the chat opens, tap the attach icon and add your reference image.";
+  link();
+}
+$("name").addEventListener("input",link);
+$("shareBtn").onclick=function(){
+  if(!S.file||!navigator.share)return;
+  navigator.share({files:[S.file],text:msg(),title:STUDIO+" enquiry"}).catch(function(){});
+};
+
+/* ---------- Falling messages ---------- */
+(function(){
+  var box=$("fall"),last=-1;
+  function spawn(){
+    if(reduced()||document.hidden||box.children.length>=4)return;
+    var i;do{i=Math.floor(Math.random()*MSG.length)}while(i===last);last=i;
+    var d=document.createElement("div");d.className="fb";d.textContent=MSG[i];
+    d.style.left=(3+Math.random()*40)+"%";
+    d.style.setProperty("--r",(Math.random()*6-3)+"deg");
+    d.style.animationDuration=(15+Math.random()*7)+"s";
+    d.addEventListener("animationend",function(){d.remove()});
+    box.appendChild(d);
+  }
+  spawn();setInterval(spawn,4200);
+  document.addEventListener("focusin",function(e){if(/^(TEXTAREA|INPUT)$/.test(e.target.tagName))box.classList.add("off")});
+  document.addEventListener("focusout",function(){box.classList.remove("off")});
+})();
+
+try{history.replaceState({s:1},"")}catch(e){hist=false}
+go(1,false,false);
+})();
+</script>
+</body>
+</html>
