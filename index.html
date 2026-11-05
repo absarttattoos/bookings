@@ -104,6 +104,7 @@ noscript p{padding:24px;text-align:center}
 <h1 tabindex="-1">What are you<br>thinking of getting?</h1>
 <p class="sub">Describe your tattoo idea in your own words.</p>
 <textarea id="idea" maxlength="600" aria-label="Your tattoo idea" placeholder="e.g. A fine-line lotus with my mother’s initials, black and grey"></textarea>
+<div class="chips"><button type="button" class="chip" id="unsure" aria-pressed="false">🤔 I’m not sure yet, help me decide</button></div>
 <div class="chips" id="styles" aria-label="Style (optional)"></div>
 <label class="up"><input type="file" id="file" accept="image/*"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg><span id="upTxt">Add a reference image (optional)</span></label>
 <div class="pv" id="pv"><img id="prev" alt="Your reference image"><button type="button" id="rm" aria-label="Remove image">&times;</button></div>
@@ -115,6 +116,7 @@ noscript p{padding:24px;text-align:center}
 <div class="seg"><button type="button" id="tF" class="on">Front</button><button type="button" id="tB">Back</button></div>
 <div class="fig" id="fig"><svg id="body" viewBox="0 0 200 420" role="group" aria-label="Body map"></svg></div>
 <div class="sel" id="sel"></div>
+<div class="chips" style="justify-content:center"><button type="button" class="chip" id="placeUnsure" aria-pressed="false">🤔 I’m not sure where yet</button></div>
 <h3>How big do you want it?</h3>
 <div class="rows" id="sizes" role="radiogroup" aria-label="Size"></div>
 <h3>What’s your budget?</h3>
@@ -146,10 +148,10 @@ noscript p{padding:24px;text-align:center}
 var WA="919373847246",STUDIO="Absart Tattoos";
 var STYLES=["Fine line","Minimal","Realism","Lettering","Traditional","Neo traditional","Abstract","Blackwork","Geometric","Dotwork","Watercolour","Japanese","Tribal","Not sure"];
 var SIZES=[["Credit card size","💳","About 8 × 5 cm"],["Hand size","✋","Roughly your palm"],["A4 size","📄","About 21 × 30 cm"],["Half sleeve or larger","😎","Shoulder to elbow and beyond"],["Haven’t decided yet","","We’ll help you choose"]];
-var BUDGETS=["Under 5k","5k–10k","10k–15k","15k–25k","25k+"];
+var BUDGETS=["Under 3k","3k–5k","5k–10k","10k–15k","15k–25k","25k+"];
 var WHENS=["Today","Tomorrow","This week","Next week","This month","Not sure"];
 var MSG=["Your skin is about to become art 🎨","Good taste detected ✨","Fun fact: Ötzi the Iceman, over 5,000 years old, had around 60 tattoos.","Brave decision. Great decision.","Future you says thank you 🙌","Your idea already sounds better than most Mondays.","Pro tip: moisturise, don’t scratch.","No pressure. Just a very cool idea.","Plot twist: you’ll want a second one.","That idea has main-character energy.","It’s going to look amazing. We can tell.","Pain is temporary. Bragging rights are forever.","Fun fact: ‘tattoo’ comes from the Polynesian word ‘tatau’.","Your future self is already smiling 😄","Every great story starts with a first line.","Drink water. Hydrated skin heals better 💧","You have great taste. Just saying.","Our artists are excited already 🖋️","A tattoo is a diary people can actually see.","Confidence level: about to go up.","Fun fact: the first tattoo machine was patented in 1891.","Whatever you pick, wear it like you meant it 😎","Take your time. Good art is worth it."];
-var S={idea:"",styles:{},hasImg:false,file:null,parts:{},size:"",budget:"",when:"",view:"Front"},cur=1,hist=true;
+var S={idea:"",unsure:false,styles:{},hasImg:false,file:null,parts:{},placeUnsure:false,size:"",budget:"",when:"",view:"Front"},cur=1,hist=true;
 var $=function(i){return document.getElementById(i)};
 var RM=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)");
 function reduced(){return RM&&RM.matches}
@@ -203,6 +205,8 @@ STYLES.forEach(function(t){
   b.onclick=function(){var on=!S.styles[t];if(on)S.styles[t]=1;else delete S.styles[t];b.className="chip"+(on?" on":"");b.setAttribute("aria-pressed",on)};
   $("styles").appendChild(b);
 });
+$("placeUnsure").onclick=function(){S.placeUnsure=!S.placeUnsure;this.className="chip"+(S.placeUnsure?" on":"");this.setAttribute("aria-pressed",S.placeUnsure)};
+$("unsure").onclick=function(){S.unsure=!S.unsure;this.className="chip"+(S.unsure?" on":"");this.setAttribute("aria-pressed",S.unsure)};
 $("file").addEventListener("change",function(){
   var f=this.files&&this.files[0];if(!f)return;
   if(f.type.indexOf("image/")!==0){toast("Please choose an image file.");this.value="";return}
@@ -216,7 +220,7 @@ function opts(id,list,key,rich){
   var box=$(id);
   list.forEach(function(it,i){
     var t=rich?it[0]:it,b=document.createElement("button");
-    b.type="button";b.className="opt"+(!rich&&id==="budgets"&&i===list.length-1?" w":"");
+    b.type="button";b.className="opt"+(!rich&&list.length%2===1&&i===list.length-1?" w":"");
     b.setAttribute("role","radio");b.setAttribute("aria-checked","false");
     b.innerHTML=rich?'<span class="t"><b>'+t+'</b><small>'+it[2]+'</small></span>'+(it[1]?'<span class="em" aria-hidden="true">'+it[1]+'</span>':''):'<span class="t"><b>'+t+'</b></span>';
     b.onclick=function(){S[key]=t;[].forEach.call(box.children,function(c){c.classList.remove("on");c.setAttribute("aria-checked","false")});b.classList.add("on");b.setAttribute("aria-checked","true")};
@@ -230,9 +234,9 @@ var tt;
 function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("show")},3200)}
 function fail(m,id){toast(m);var e=$(id);if(e)e.scrollIntoView({behavior:reduced()?"auto":"smooth",block:"center"});return false}
 function chk(n){
-  if(n===1){S.idea=$("idea").value.trim();if(!S.idea&&!S.hasImg)return fail("Describe your idea or add a reference image to continue.","idea")}
+  if(n===1){S.idea=$("idea").value.trim();if(!S.idea&&!S.hasImg&&!S.unsure)return fail("Describe your idea, add an image, or tap “I’m not sure yet”.","idea")}
   if(n===2){
-    if(!Object.keys(S.parts).length)return fail("Tap at least one body part.","fig");
+    if(!Object.keys(S.parts).length&&!S.placeUnsure)return fail("Tap a body part, or choose “I’m not sure where yet”.","fig");
     if(!S.size)return fail("Choose a size.","sizes");
     if(!S.budget)return fail("Choose a budget range.","budgets");
   }
@@ -266,11 +270,18 @@ window.addEventListener("popstate",function(e){var s=e.state&&e.state.s;if(s>=1&
 
 /* ---------- Summary + WhatsApp ---------- */
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function placement(){
+  var p=Object.keys(S.parts).map(function(k){return S.parts[k]}).join(", ");
+  if(S.placeUnsure)p=(p?p+" (not sure yet, open to the artist’s suggestions)":"Not sure yet – would like the artist’s suggestions");
+  return p;
+}
 function rows(){
   var st=Object.keys(S.styles).join(", ");
-  var r=[["Idea",S.idea||"(see reference image)",1]];
+  var idea=S.idea;
+  if(S.unsure)idea=(idea?idea+"\n":"")+"Not sure yet – would like the artist’s help deciding";
+  var r=[["Idea",idea||"(see reference image)",1]];
   if(st)r.push(["Style",st,1]);
-  r.push(["Reference image",S.hasImg?"Yes – I’ll attach it in chat":"None",1],["Placement",Object.keys(S.parts).map(function(k){return S.parts[k]}).join(", "),2],["Size",S.size,2],["Budget (₹)",S.budget,2],["When",S.when,3]);
+  r.push(["Reference image",S.hasImg?"Yes – I’ll attach it in chat":"None",1],["Placement",placement(),2],["Size",S.size,2],["Budget (₹)",S.budget,2],["When",S.when,3]);
   return r;
 }
 function msg(){
