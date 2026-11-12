@@ -92,6 +92,23 @@ section{display:none}section.show{display:block;animation:in .25s ease}
 noscript p{padding:24px;text-align:center}
 @media (prefers-reduced-motion:reduce){section.show{animation:none}.toast,.prog i,.p{transition:none}}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1679520840399066');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1679520840399066&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <noscript><p>Please turn on JavaScript to send your tattoo enquiry, or message us directly on WhatsApp at +91 93738 47246.</p></noscript>
@@ -299,8 +316,14 @@ function build(){
   link();
 }
 $("name").addEventListener("input",link);
+
+/* ---------- Meta Pixel: Lead event ---------- */
+function trackLead(){try{if(typeof fbq==="function")fbq("track","Lead")}catch(e){}}
+$("waBtn").addEventListener("click",trackLead);
+
 $("shareBtn").onclick=function(){
   if(!S.file||!navigator.share)return;
+  trackLead();
   navigator.share({files:[S.file],text:msg(),title:STUDIO+" enquiry"}).catch(function(){});
 };
 
